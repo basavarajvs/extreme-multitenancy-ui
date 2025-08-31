@@ -1,2 +1,6 @@
 // src/modules/types/index.ts
-export type { ModuleDefinition, ModuleSubRoute, ModuleRegistry, AdminLevel } from './ModuleDefinition';
+export type {
+  AdminLevel,
+  ModuleDefinition,
+  ModuleSubRoute,
+} from './ModuleDefinition';

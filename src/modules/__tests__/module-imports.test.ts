@@ -1,5 +1,6 @@
 // src/modules/__tests__/module-imports.test.ts
 import moduleRegistry from '../ModuleRegistry';
+import type { ModuleDefinition } from '../types';
 
 describe('Module Component Imports', () => {
   beforeEach(() => {
@@ -9,7 +10,7 @@ describe('Module Component Imports', () => {
 
   it('should be able to import warehouse management component', async () => {
     // Register the warehouse management module
-    const warehouseModuleDefinition = {
+    const warehouseModuleDefinition: ModuleDefinition = {
       key: 'warehouse-mgmt',
       name: 'Warehouse Management',
       path: '/tenantadmin/warehouses',
@@ -18,15 +19,17 @@ describe('Module Component Imports', () => {
       adminLevel: 'tenant-admin',
       requiredPermissions: ['manage_warehouses'],
       order: 20,
-      subRoutes: []
+      subRoutes: [],
     };
-    
+
     moduleRegistry.registerModule(warehouseModuleDefinition);
-    
+
     const module = moduleRegistry.getModule('warehouse-mgmt');
     expect(module).toBeDefined();
-    expect(module?.componentPath).toBe('@/modules/warehouse-mgmt/pages/Warehouses');
-    
+    expect(module?.componentPath).toBe(
+      '@/modules/warehouse-mgmt/pages/Warehouses',
+    );
+
     // Note: We can't actually import the component in a test environment
     // because it would require a full React environment and the file system
     // This test is mainly to verify that the module is registered correctly
@@ -34,50 +37,52 @@ describe('Module Component Imports', () => {
 
   it('should be able to import warehouse admin component', async () => {
     // Register the warehouse admin module
-    const warehouseAdminModuleDefinition = {
+    const warehouseAdminModuleDefinition: ModuleDefinition = {
       key: 'warehouse-admin',
       name: 'Warehouse Administration',
-      path: '/tenantadmin/warehouse-admin',
+      path: '/warehouseadmin',
       icon: 'SettingOutlined',
       componentPath: '@/modules/warehouse-admin/pages/Dashboard',
-      adminLevel: 'tenant-admin',
-      requiredPermissions: ['manage_warehouses'],
-      order: 21,
+      adminLevel: 'warehouse-admin',
+      requiredPermissions: ['manage_warehouse_admin'],
+      order: 10,
       subRoutes: [
         {
           path: '/labor',
           componentPath: '@/modules/warehouse-admin/pages/Labor',
-          name: 'Labor Management'
+          name: 'Labor Management',
         },
         {
           path: '/dock',
           componentPath: '@/modules/warehouse-admin/pages/Dock',
-          name: 'Dock Management'
+          name: 'Dock Management',
         },
         {
           path: '/yard',
           componentPath: '@/modules/warehouse-admin/pages/Yard',
-          name: 'Yard Management'
+          name: 'Yard Management',
         },
         {
           path: '/reports',
           componentPath: '@/modules/warehouse-admin/pages/Reports',
-          name: 'Reports'
+          name: 'Reports',
         },
         {
           path: '/settings',
           componentPath: '@/modules/warehouse-admin/pages/Settings',
-          name: 'Settings'
-        }
-      ]
+          name: 'Settings',
+        },
+      ],
     };
-    
+
     moduleRegistry.registerModule(warehouseAdminModuleDefinition);
-    
+
     const module = moduleRegistry.getModule('warehouse-admin');
     expect(module).toBeDefined();
-    expect(module?.componentPath).toBe('@/modules/warehouse-admin/pages/Dashboard');
-    
+    expect(module?.componentPath).toBe(
+      '@/modules/warehouse-admin/pages/Dashboard',
+    );
+
     // Note: We can't actually import the component in a test environment
     // because it would require a full React environment and the file system
     // This test is mainly to verify that the module is registered correctly

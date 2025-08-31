@@ -1,10 +1,10 @@
 // src/modules/WarehouseModule.ts
-import { ModuleDefinition } from './types';
+import type { ModuleDefinition } from './types';
 
 /**
  * Module definition for the Warehouse Management module.
  * This module provides warehouse management functionality for tenant administrators.
- * 
+ *
  * Note: This module definition is registered in src/modules/index.ts
  * Registration happens automatically when the modules system is imported.
  */
@@ -17,7 +17,7 @@ const warehouseModuleDefinition: ModuleDefinition = {
   adminLevel: 'tenant-admin',
   requiredPermissions: ['manage_warehouses'],
   order: 20,
-  subRoutes: []
+  subRoutes: [],
 };
 
 export default warehouseModuleDefinition;

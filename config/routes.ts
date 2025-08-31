@@ -156,227 +156,6 @@ export default [
         component: './TenantAdmin/WarehouseModuleLoader',
       },
       {
-        path: '/tenantadmin/warehouse-admin',
-        name: 'warehouse-admin',
-        icon: 'setting',
-        routes: [
-          {
-            path: '/tenantadmin/warehouse-admin',
-            redirect: '/tenantadmin/warehouse-admin/dashboard',
-          },
-          {
-            path: '/tenantadmin/warehouse-admin/dashboard',
-            name: 'dashboard',
-            icon: 'dashboard',
-            component: './TenantAdmin/WarehouseAdminModuleLoader', // Loads the dashboard
-          },
-          {
-            path: '/tenantadmin/warehouse-admin/labor',
-            name: 'labor',
-            icon: 'team',
-            component: './TenantAdmin/WarehouseLaborModuleLoader',
-          },
-          {
-            path: '/tenantadmin/warehouse-admin/dock',
-            name: 'Dock',
-            icon: 'container',
-            component: './TenantAdmin/WarehouseDockModuleLoader',
-          },
-          {
-            path: '/tenantadmin/warehouse-admin/yard',
-            name: 'Yard',
-            icon: 'car',
-            component: './TenantAdmin/WarehouseYardModuleLoader',
-          },
-          {
-            path: '/tenantadmin/warehouse-admin/reports',
-            name: 'Reports',
-            icon: 'bar-chart',
-            component: './TenantAdmin/WarehouseReportsModuleLoader',
-          },
-          {
-            path: '/tenantadmin/warehouse-admin/settings',
-            name: 'Settings',
-            icon: 'setting',
-            component: './TenantAdmin/WarehouseSettingsModuleLoader',
-          },
-        ],
-      },
-      {
-        path: '/tenantadmin/warehouse-user',
-        name: 'Warehouse User',
-        icon: 'user',
-        routes: [
-          {
-            path: '/tenantadmin/warehouse-user/tasks',
-            name: 'My Tasks',
-            component: './TenantAdmin/WarehouseUserModuleLoader',
-          },
-          {
-            path: '/tenantadmin/warehouse-user/inbound',
-            name: 'Inbound',
-            routes: [
-              {
-                path: '/tenantadmin/warehouse-user/inbound/appointments',
-                name: 'Appointments & Dock Check-in',
-                component: './TenantAdmin/WarehouseUserModuleLoader',
-              },
-              {
-                path: '/tenantadmin/warehouse-user/inbound/asn',
-                name: 'ASN Receiving',
-                component: './TenantAdmin/WarehouseUserModuleLoader',
-              },
-              {
-                path: '/tenantadmin/warehouse-user/inbound/grn',
-                name: 'GRN & Variance',
-                component: './TenantAdmin/WarehouseUserModuleLoader',
-              },
-              {
-                path: '/tenantadmin/warehouse-user/inbound/quality',
-                name: 'Quality Inspection',
-                component: './TenantAdmin/WarehouseUserModuleLoader',
-              },
-              {
-                path: '/tenantadmin/warehouse-user/inbound/putaway',
-                name: 'Putaway',
-                component: './TenantAdmin/WarehouseUserModuleLoader',
-              },
-              {
-                path: '/tenantadmin/warehouse-user/inbound/cross-dock',
-                name: 'Cross-Dock',
-                component: './TenantAdmin/WarehouseUserModuleLoader',
-              },
-            ],
-          },
-          {
-            path: '/tenantadmin/warehouse-user/inventory',
-            name: 'Inventory',
-            routes: [
-              {
-                path: '/tenantadmin/warehouse-user/inventory/inquiry',
-                name: 'Stock Inquiry',
-                component: './TenantAdmin/WarehouseUserModuleLoader',
-              },
-              {
-                path: '/tenantadmin/warehouse-user/inventory/moves',
-                name: 'Moves / Relocation',
-                component: './TenantAdmin/WarehouseUserModuleLoader',
-              },
-              {
-                path: '/tenantadmin/warehouse-user/inventory/adjustments',
-                name: 'Adjustments',
-                component: './TenantAdmin/WarehouseUserModuleLoader',
-              },
-              {
-                path: '/tenantadmin/warehouse-user/inventory/replenishment',
-                name: 'Replenishment Execution',
-                component: './TenantAdmin/WarehouseUserModuleLoader',
-              },
-              {
-                path: '/tenantadmin/warehouse-user/inventory/cycle-count',
-                name: 'Cycle Count Execution',
-                component: './TenantAdmin/WarehouseUserModuleLoader',
-              },
-            ],
-          },
-          {
-            path: '/tenantadmin/warehouse-user/outbound',
-            name: 'Outbound',
-            routes: [
-              {
-                path: '/tenantadmin/warehouse-user/outbound/order-workbench',
-                name: 'Order Workbench',
-                component: './TenantAdmin/WarehouseUserModuleLoader',
-              },
-              {
-                path: '/tenantadmin/warehouse-user/outbound/waves',
-                name: 'Waves',
-                component: './TenantAdmin/WarehouseUserModuleLoader',
-              },
-              {
-                path: '/tenantadmin/warehouse-user/outbound/picking',
-                name: 'Picking',
-                component: './TenantAdmin/WarehouseUserModuleLoader',
-              },
-              {
-                path: '/tenantadmin/warehouse-user/outbound/packing',
-                name: 'Packing & Cartonization',
-                component: './TenantAdmin/WarehouseUserModuleLoader',
-              },
-              {
-                path: '/tenantadmin/warehouse-user/outbound/shipping',
-                name: 'Shipping & Manifest',
-                component: './TenantAdmin/WarehouseUserModuleLoader',
-              },
-              {
-                path: '/tenantadmin/warehouse-user/outbound/load-planning',
-                name: 'Load Planning & Truck Loading',
-                component: './TenantAdmin/WarehouseUserLoadingLoader',
-              },
-            ],
-          },
-          {
-            path: '/tenantadmin/warehouse-user/returns',
-            name: 'Returns & Kitting',
-            routes: [
-              {
-                path: '/tenantadmin/warehouse-user/returns/customer-returns',
-                name: 'Customer Returns',
-                component: './TenantAdmin/WarehouseUserReturnsLoader',
-              },
-              {
-                path: '/tenantadmin/warehouse-user/returns/kitting',
-                name: 'Kitting / De-kitting',
-                component: './TenantAdmin/WarehouseUserKittingLoader',
-              },
-            ],
-          },
-          {
-            path: '/tenantadmin/warehouse-user/exceptions',
-            name: 'Exceptions & Holds',
-            component: './TenantAdmin/WarehouseUserExceptionsLoader',
-          },
-          {
-            path: '/tenantadmin/warehouse-user/reports',
-            name: 'Reports',
-            routes: [
-              {
-                path: '/tenantadmin/warehouse-user/reports/my-kpis',
-                name: 'My KPIs',
-                component: './TenantAdmin/WarehouseUserReportsLoader',
-              },
-            ],
-          },
-          {
-            path: '/tenantadmin/warehouse-user/mobile',
-            name: 'Mobile (Handheld)',
-            component: './TenantAdmin/WarehouseUserMobileLoader',
-            routes: [
-              {
-                path: '/tenantadmin/warehouse-user/mobile/task-list',
-                name: 'Task List',
-                component: './TenantAdmin/WarehouseUserModuleLoader',
-              },
-              {
-                path: '/tenantadmin/warehouse-user/mobile/scan-station',
-                name: 'Scan Station',
-                component: './TenantAdmin/WarehouseUserModuleLoader',
-              },
-              {
-                path: '/tenantadmin/warehouse-user/mobile/messages',
-                name: 'Messages / Notifications',
-                component: './TenantAdmin/WarehouseUserModuleLoader',
-              },
-            ],
-          },
-          {
-            path: '/tenantadmin/warehouse-user/profile',
-            name: 'My Profile',
-            component: './TenantAdmin/WarehouseUserModuleLoader',
-          },
-        ],
-      },
-      {
         path: '/tenantadmin/users',
         name: 'users',
         icon: 'team',
@@ -399,6 +178,232 @@ export default [
         name: 'reports',
         icon: 'bar-chart',
         component: './TenantAdmin/Reports',
+      },
+    ],
+  },
+  {
+    path: '/warehouseadmin',
+    name: 'warehouseadmin',
+    icon: 'setting',
+    access: 'canAccessWarehouseAdminModule',
+    routes: [
+      {
+        path: '/warehouseadmin',
+        redirect: '/warehouseadmin/dashboard',
+      },
+      {
+        path: '/warehouseadmin/dashboard',
+        name: 'dashboard',
+        icon: 'dashboard',
+        component: './TenantAdmin/WarehouseAdminModuleLoader',
+      },
+      {
+        path: '/warehouseadmin/labor',
+        name: 'labor',
+        icon: 'team',
+        component: './TenantAdmin/WarehouseLaborModuleLoader',
+      },
+      {
+        path: '/warehouseadmin/dock',
+        name: 'Dock',
+        icon: 'container',
+        component: './TenantAdmin/WarehouseDockModuleLoader',
+      },
+      {
+        path: '/warehouseadmin/yard',
+        name: 'Yard',
+        icon: 'car',
+        component: './TenantAdmin/WarehouseYardModuleLoader',
+      },
+      {
+        path: '/warehouseadmin/reports',
+        name: 'Reports',
+        icon: 'bar-chart',
+        component: './TenantAdmin/WarehouseReportsModuleLoader',
+      },
+      {
+        path: '/warehouseadmin/settings',
+        name: 'Settings',
+        icon: 'setting',
+        component: './TenantAdmin/WarehouseSettingsModuleLoader',
+      },
+    ],
+  },
+  {
+    path: '/warehouseuser',
+    name: 'warehouseuser',
+    icon: 'user',
+    access: 'canAccessWarehouseUserModule',
+    routes: [
+      {
+        path: '/warehouseuser',
+        redirect: '/warehouseuser/tasks',
+      },
+      {
+        path: '/warehouseuser/tasks',
+        name: 'My Tasks',
+        component: './TenantAdmin/WarehouseUserModuleLoader',
+      },
+      {
+        path: '/warehouseuser/inbound',
+        name: 'Inbound',
+        routes: [
+          {
+            path: '/warehouseuser/inbound/appointments',
+            name: 'Appointments & Dock Check-in',
+            component: './TenantAdmin/WarehouseUserModuleLoader',
+          },
+          {
+            path: '/warehouseuser/inbound/asn',
+            name: 'ASN Receiving',
+            component: './TenantAdmin/WarehouseUserModuleLoader',
+          },
+          {
+            path: '/warehouseuser/inbound/grn',
+            name: 'GRN & Variance',
+            component: './TenantAdmin/WarehouseUserModuleLoader',
+          },
+          {
+            path: '/warehouseuser/inbound/quality',
+            name: 'Quality Inspection',
+            component: './TenantAdmin/WarehouseUserModuleLoader',
+          },
+          {
+            path: '/warehouseuser/inbound/putaway',
+            name: 'Putaway',
+            component: './TenantAdmin/WarehouseUserModuleLoader',
+          },
+          {
+            path: '/warehouseuser/inbound/cross-dock',
+            name: 'Cross-Dock',
+            component: './TenantAdmin/WarehouseUserModuleLoader',
+          },
+        ],
+      },
+      {
+        path: '/warehouseuser/inventory',
+        name: 'Inventory',
+        routes: [
+          {
+            path: '/warehouseuser/inventory/inquiry',
+            name: 'Stock Inquiry',
+            component: './TenantAdmin/WarehouseUserModuleLoader',
+          },
+          {
+            path: '/warehouseuser/inventory/moves',
+            name: 'Moves / Relocation',
+            component: './TenantAdmin/WarehouseUserModuleLoader',
+          },
+          {
+            path: '/warehouseuser/inventory/adjustments',
+            name: 'Adjustments',
+            component: './TenantAdmin/WarehouseUserModuleLoader',
+          },
+          {
+            path: '/warehouseuser/inventory/replenishment',
+            name: 'Replenishment Execution',
+            component: './TenantAdmin/WarehouseUserModuleLoader',
+          },
+          {
+            path: '/warehouseuser/inventory/cycle-count',
+            name: 'Cycle Count Execution',
+            component: './TenantAdmin/WarehouseUserModuleLoader',
+          },
+        ],
+      },
+      {
+        path: '/warehouseuser/outbound',
+        name: 'Outbound',
+        routes: [
+          {
+            path: '/warehouseuser/outbound/order-workbench',
+            name: 'Order Workbench',
+            component: './TenantAdmin/WarehouseUserModuleLoader',
+          },
+          {
+            path: '/warehouseuser/outbound/waves',
+            name: 'Waves',
+            component: './TenantAdmin/WarehouseUserModuleLoader',
+          },
+          {
+            path: '/warehouseuser/outbound/picking',
+            name: 'Picking',
+            component: './TenantAdmin/WarehouseUserModuleLoader',
+          },
+          {
+            path: '/warehouseuser/outbound/packing',
+            name: 'Packing & Cartonization',
+            component: './TenantAdmin/WarehouseUserModuleLoader',
+          },
+          {
+            path: '/warehouseuser/outbound/shipping',
+            name: 'Shipping & Manifest',
+            component: './TenantAdmin/WarehouseUserModuleLoader',
+          },
+          {
+            path: '/warehouseuser/outbound/load-planning',
+            name: 'Load Planning & Truck Loading',
+            component: './TenantAdmin/WarehouseUserModuleLoader',
+          },
+        ],
+      },
+      {
+        path: '/warehouseuser/returns',
+        name: 'Returns & Kitting',
+        routes: [
+          {
+            path: '/warehouseuser/returns/customer-returns',
+            name: 'Customer Returns',
+            component: './TenantAdmin/WarehouseUserModuleLoader',
+          },
+          {
+            path: '/warehouseuser/returns/kitting',
+            name: 'Kitting / De-kitting',
+            component: './TenantAdmin/WarehouseUserModuleLoader',
+          },
+        ],
+      },
+      {
+        path: '/warehouseuser/exceptions',
+        name: 'Exceptions & Holds',
+        component: './TenantAdmin/WarehouseUserModuleLoader',
+      },
+      {
+        path: '/warehouseuser/reports',
+        name: 'Reports',
+        routes: [
+          {
+            path: '/warehouseuser/reports/my-kpis',
+            name: 'My KPIs',
+            component: './TenantAdmin/WarehouseUserModuleLoader',
+          },
+        ],
+      },
+      {
+        path: '/warehouseuser/mobile',
+        name: 'Mobile (Handheld)',
+        routes: [
+          {
+            path: '/warehouseuser/mobile/task-list',
+            name: 'Task List',
+            component: './TenantAdmin/WarehouseUserModuleLoader',
+          },
+          {
+            path: '/warehouseuser/mobile/scan-station',
+            name: 'Scan Station',
+            component: './TenantAdmin/WarehouseUserModuleLoader',
+          },
+          {
+            path: '/warehouseuser/mobile/messages',
+            name: 'Messages / Notifications',
+            component: './TenantAdmin/WarehouseUserModuleLoader',
+          },
+        ],
+      },
+      {
+        path: '/warehouseuser/profile',
+        name: 'My Profile',
+        component: './TenantAdmin/WarehouseUserModuleLoader',
       },
     ],
   },

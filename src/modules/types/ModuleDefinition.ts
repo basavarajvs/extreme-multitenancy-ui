@@ -40,9 +40,14 @@ export interface ModuleDefinition {
 
   /**
    * Indicates which admin level this module belongs to
-   * @example 'super-admin' | 'application-admin' | 'tenant-admin'
+   * @example 'super-admin' | 'application-admin' | 'tenant-admin' | 'warehouse-admin' | 'warehouse-user'
    */
-  adminLevel: 'super-admin' | 'application-admin' | 'tenant-admin';
+  adminLevel:
+    | 'super-admin'
+    | 'application-admin'
+    | 'tenant-admin'
+    | 'warehouse-admin'
+    | 'warehouse-user';
 
   /**
    * Array of strings representing the permissions a user must have to access this module
@@ -93,4 +98,9 @@ export interface ModuleSubRoute {
 /**
  * Type for defining the structure of modules grouped by admin level
  */
-export type AdminLevel = 'super-admin' | 'application-admin' | 'tenant-admin';
+export type AdminLevel =
+  | 'super-admin'
+  | 'application-admin'
+  | 'tenant-admin'
+  | 'warehouse-admin'
+  | 'warehouse-user';

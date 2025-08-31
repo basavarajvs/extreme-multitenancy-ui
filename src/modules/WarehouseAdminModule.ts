@@ -1,52 +1,52 @@
 // src/modules/WarehouseAdminModule.ts
-import { ModuleDefinition } from './types';
+import type { ModuleDefinition } from './types';
 
 /**
  * Module definition for the Warehouse Admin module.
  * This module provides warehouse administration functionality for tenant administrators.
- * 
+ *
  * Note: This module definition is registered in src/modules/index.ts
  * Registration happens automatically when the modules system is imported.
- * 
- * This is the Tenant Admin version of warehouse operations, focused on 
+ *
+ * This is the Tenant Admin version of warehouse operations, focused on
  * tenant-specific warehouse administration.
  */
 const warehouseAdminModuleDefinition: ModuleDefinition = {
   key: 'warehouse-admin',
   name: 'Warehouse Administration',
-  path: '/tenantadmin/warehouse-admin',
+  path: '/warehouseadmin',
   icon: 'SettingOutlined',
   componentPath: '../../modules/warehouse-admin/pages/Dashboard/index',
-  adminLevel: 'tenant-admin',
-  requiredPermissions: ['manage_warehouses'],
-  order: 21,
+  adminLevel: 'warehouse-admin',
+  requiredPermissions: ['manage_warehouse_admin'],
+  order: 10,
   subRoutes: [
     {
       path: '/labor',
       componentPath: '../../modules/warehouse-admin/pages/Labor/index.tsx',
-      name: 'Labor Management'
+      name: 'Labor Management',
     },
     {
       path: '/dock',
       componentPath: '../../modules/warehouse-admin/pages/Dock/index.tsx',
-      name: 'Dock Management'
+      name: 'Dock Management',
     },
     {
       path: '/yard',
       componentPath: '../../modules/warehouse-admin/pages/Yard/index.tsx',
-      name: 'Yard Management'
+      name: 'Yard Management',
     },
     {
       path: '/reports',
       componentPath: '../../modules/warehouse-admin/pages/Reports/index.tsx',
-      name: 'Reports'
+      name: 'Reports',
     },
     {
       path: '/settings',
       componentPath: '../../modules/warehouse-admin/pages/Settings/index.tsx',
-      name: 'Settings'
-    }
-  ]
+      name: 'Settings',
+    },
+  ],
 };
 
 export default warehouseAdminModuleDefinition;
