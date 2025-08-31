@@ -222,10 +222,58 @@ export default [
         component: './TenantAdmin/WarehouseReportsModuleLoader',
       },
       {
+        path: '/warehouseadmin/putaway-rules',
+        name: 'Putaway Rules',
+        icon: 'cluster',
+        component: './TenantAdmin/WarehousePutawayRulesModuleLoader',
+      },
+      {
+        path: '/warehouseadmin/replenishment-rules',
+        name: 'Replenishment Rules',
+        icon: 'reload',
+        component: './TenantAdmin/WarehouseReplenishmentRulesModuleLoader',
+      },
+      {
+        path: '/warehouseadmin/cycle-count-rules',
+        name: 'Cycle Count Rules',
+        icon: 'container',
+        component: './TenantAdmin/WarehouseCycleCountRulesModuleLoader',
+      },
+      {
+        path: '/warehouseadmin/task-assignment',
+        name: 'Task Assignment',
+        icon: 'deployment-unit',
+        component: './TenantAdmin/WarehouseTaskAssignmentModuleLoader',
+      },
+      {
+        path: '/warehouseadmin/execution-monitoring',
+        name: 'Execution Monitoring',
+        icon: 'dashboard',
+        component: './TenantAdmin/WarehouseMonitoringModuleLoader',
+      },
+      {
+        path: '/warehouseadmin/locations',
+        name: 'Location Management',
+        icon: 'environment',
+        component: './TenantAdmin/WarehouseLocationsModuleLoader',
+      },
+      {
+        path: '/warehouseadmin/profile',
+        name: 'Warehouse Profile',
+        icon: 'profile',
+        component: './TenantAdmin/WarehouseProfileModuleLoader',
+      },
+      {
         path: '/warehouseadmin/settings',
         name: 'Settings',
         icon: 'setting',
         component: './TenantAdmin/WarehouseSettingsModuleLoader',
+      },
+      {
+        path: '/warehouseadmin/inventory-config',
+        name: 'Inventory Configuration',
+        icon: 'inbox',
+        component: './TenantAdmin/WarehouseInventoryConfigModuleLoader',
       },
     ],
   },
@@ -242,7 +290,23 @@ export default [
       {
         path: '/warehouseuser/tasks',
         name: 'My Tasks',
-        component: './TenantAdmin/WarehouseUserModuleLoader',
+        routes: [
+          {
+            path: '/warehouseuser/tasks',
+            redirect: '/warehouseuser/tasks/list',
+          },
+          {
+            path: '/warehouseuser/tasks/list',
+            name: 'Task List',
+            component: './TenantAdmin/WarehouseUserModuleLoader',
+          },
+          {
+            path: '/warehouseuser/tasks/management',
+            name: 'Task Management',
+            component: './User/WarehouseTaskManagementModuleLoader',
+            icon: 'ordered-list',
+          },
+        ],
       },
       {
         path: '/warehouseuser/inbound',

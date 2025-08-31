@@ -2,9 +2,13 @@
   "compilerOptions": {
     "baseUrl": "./",
     "target": "esnext",
+    "module": "esnext",
     "moduleResolution": "node",
     "jsx": "react-jsx",
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    // Removed allowImportingTsExtensions as it requires noEmit or emitDeclarationOnly
+    // "allowImportingTsExtensions": true,
     "experimentalDecorators": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -16,7 +20,22 @@
       "@/*": ["./src/*"],
       "@@/*": ["./src/.umi/*"],
       "@@test/*": ["./src/.umi-test/*"]
-    }
+    },
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/types"
+    ]
   },
-  "include": ["./**/*.d.ts", "./**/*.ts", "./**/*.tsx"]
+  "include": [
+    "./**/*.d.ts",
+    "./**/*.ts",
+    "./**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build",
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ]
 }

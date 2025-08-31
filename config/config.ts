@@ -181,4 +181,40 @@ export default defineConfig({
   define: {
     'process.env.CI': process.env.CI,
   },
+  // Enable TypeScript module resolution for dynamic imports
+  extraBabelIncludes: [
+    /@umijs[\\/]max/,
+    /@ant-design[\\/]pro-*/,
+  ],
+  // Configure TypeScript module resolution
+  chainWebpack(config: any) {
+    config.module
+      .rule('ts-in-node_modules')
+      .test(/\.tsx?$/)
+      .include
+        .add(/node_modules/)
+        .end()
+      .use('babel-loader')
+        .loader('babel-loader')
+        .end();
+    
+    // Enable dynamic imports
+    config.merge({
+      optimization: {
+        splitChunks: {
+          chunks: 'all',
+          minSize: 30000,
+          minChunks: 3,
+          automaticNameDelimiter: '.',
+          cacheGroups: {
+            vendor: {
+              name: 'vendors',
+              test: /[\\/]node_modules[\\/]/,
+              priority: -10,
+            },
+          },
+        },
+      },
+    });
+  },
 });

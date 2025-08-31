@@ -121,9 +121,7 @@ export const layout: RunTimeLayoutConfig = ({
         <AvatarDropdown>{avatarChildren}</AvatarDropdown>
       ),
     },
-    waterMarkProps: {
-      content: initialState?.currentUser?.name,
-    },
+    // Watermark removed as requested
     footerRender: () => <Footer />,
     onPageChange: () => {
       const { location } = history;
