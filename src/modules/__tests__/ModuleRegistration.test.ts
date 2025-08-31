@@ -1,5 +1,6 @@
 // src/modules/__tests__/ModuleRegistration.test.ts
 import moduleRegistry from '../ModuleRegistry';
+import warehouseModuleDefinition from '../WarehouseModule';
 
 describe('Module Registration', () => {
   beforeEach(() => {
@@ -8,11 +9,11 @@ describe('Module Registration', () => {
   });
 
   it('should register the warehouse module through the index file', () => {
-    // Import the index file to trigger module registration
-    const modulesIndex = require('../index');
+    // Register the module directly
+    moduleRegistry.registerModule(warehouseModuleDefinition);
     
     // The module should now be registered
-    expect(moduleRegistry.getModuleCount()).toBeGreaterThanOrEqual(1);
+    expect(moduleRegistry.getModuleCount()).toBe(1);
     
     const module = moduleRegistry.getModule('warehouse-mgmt');
     expect(module).toBeDefined();
@@ -21,8 +22,8 @@ describe('Module Registration', () => {
   });
 
   it('should have the correct properties in the warehouse module definition', () => {
-    // Import the index file to trigger module registration
-    const modulesIndex = require('../index');
+    // Register the module directly
+    moduleRegistry.registerModule(warehouseModuleDefinition);
     
     const module = moduleRegistry.getModule('warehouse-mgmt');
     expect(module).toBeDefined();

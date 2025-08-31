@@ -83,6 +83,11 @@ export interface ModuleSubRoute {
    * Optional name for the sub-route (for breadcrumb navigation)
    */
   name?: string;
+
+  /**
+   * Optional array of nested sub-routes
+   */
+  subRoutes?: ModuleSubRoute[];
 }
 
 /**

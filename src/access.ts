@@ -10,10 +10,12 @@ export default function access(
   if (process.env.NODE_ENV === 'development') {
     return {
       canAdmin: true,
+      canAccessWarehouseUserModule: true,
     };
   }
   
   return {
     canAdmin: currentUser && currentUser.access === 'admin',
+    canAccessWarehouseUserModule: currentUser && currentUser.permissions?.includes('access_warehouse_user_module'),
   };
 }
