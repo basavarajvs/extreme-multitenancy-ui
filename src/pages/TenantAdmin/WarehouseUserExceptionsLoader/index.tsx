@@ -1,13 +1,13 @@
-// src/pages/TenantAdmin/WarehouseUserReportsLoader/index.tsx
+// src/pages/TenantAdmin/WarehouseUserExceptionsLoader/index.tsx
 import React from 'react';
 import { PageContainer } from '@ant-design/pro-components';
 import ModuleLoader from '@/components/ModuleLoader';
 
-const WarehouseUserReportsLoader: React.FC = () => {
+const WarehouseUserExceptionsLoader: React.FC = () => {
   return (
     <PageContainer
       header={{
-        title: 'My KPIs',
+        title: 'Exceptions & Holds',
         breadcrumb: {
           items: [
             {
@@ -19,20 +19,16 @@ const WarehouseUserReportsLoader: React.FC = () => {
               title: 'Warehouse User',
             },
             {
-              path: '/tenantadmin/warehouse-user/reports',
-              title: 'Reports',
-            },
-            {
               path: '',
-              title: 'My KPIs',
+              title: 'Exceptions & Holds',
             },
           ],
         },
       }}
     >
-      <ModuleLoader moduleName="warehouse-user-reports-my-kpis" />
+      <ModuleLoader moduleName="warehouse-user-exceptions" />
     </PageContainer>
   );
 };
 
-export default WarehouseUserReportsLoader;
+export default WarehouseUserExceptionsLoader;

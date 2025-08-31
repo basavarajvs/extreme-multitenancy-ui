@@ -1,13 +1,13 @@
-// src/pages/TenantAdmin/WarehouseUserReportsLoader/index.tsx
+// src/pages/TenantAdmin/WarehouseUserKittingLoader/index.tsx
 import React from 'react';
 import { PageContainer } from '@ant-design/pro-components';
 import ModuleLoader from '@/components/ModuleLoader';
 
-const WarehouseUserReportsLoader: React.FC = () => {
+const WarehouseUserKittingLoader: React.FC = () => {
   return (
     <PageContainer
       header={{
-        title: 'My KPIs',
+        title: 'Kitting / De-kitting',
         breadcrumb: {
           items: [
             {
@@ -19,20 +19,20 @@ const WarehouseUserReportsLoader: React.FC = () => {
               title: 'Warehouse User',
             },
             {
-              path: '/tenantadmin/warehouse-user/reports',
-              title: 'Reports',
+              path: '/tenantadmin/warehouse-user/returns',
+              title: 'Returns & Kitting',
             },
             {
               path: '',
-              title: 'My KPIs',
+              title: 'Kitting',
             },
           ],
         },
       }}
     >
-      <ModuleLoader moduleName="warehouse-user-reports-my-kpis" />
+      <ModuleLoader moduleName="warehouse-user-returns-kitting" />
     </PageContainer>
   );
 };
 
-export default WarehouseUserReportsLoader;
+export default WarehouseUserKittingLoader;

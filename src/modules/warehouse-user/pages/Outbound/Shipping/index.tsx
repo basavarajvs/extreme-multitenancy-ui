@@ -75,7 +75,7 @@ const ShippingManifestPage: React.FC = () => {
   ];
 
   const rowSelection = {
-    selectedRowKeys,
+    selectedRowKeys: selectedShipmentKeys,
     onChange: (selectedKeys: React.Key[]) => {
       setSelectedShipmentKeys(selectedKeys);
     },

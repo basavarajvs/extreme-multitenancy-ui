@@ -30,7 +30,8 @@ import {
   FilePdfOutlined,
   ScanOutlined,
   DragOutlined,
-  ThunderboltOutlined
+  ThunderboltOutlined,
+  BarcodeOutlined
 } from '@ant-design/icons';
 import type { ColumnsType } from 'antd/es/table';
 

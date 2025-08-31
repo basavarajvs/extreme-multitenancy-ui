@@ -41,6 +41,7 @@ const moduleMap = {
   'warehouse-user-mobile-task-list': React.lazy(() => import('@/modules/warehouse-user/pages/Mobile/TaskList/index.tsx')),
   'warehouse-user-mobile-scan-station': React.lazy(() => import('@/modules/warehouse-user/pages/Mobile/ScanStation/index.tsx')),
   'warehouse-user-mobile-messages': React.lazy(() => import('@/modules/warehouse-user/pages/Mobile/Messages/index.tsx')),
+  'warehouse-user-mobile': React.lazy(() => import('@/modules/warehouse-user/pages/Mobile/index.tsx')),
   // Add other modules here as they are created
 };
 

@@ -311,7 +311,7 @@ export default [
               {
                 path: '/tenantadmin/warehouse-user/outbound/load-planning',
                 name: 'Load Planning & Truck Loading',
-                component: './TenantAdmin/WarehouseUserModuleLoader',
+                component: './TenantAdmin/WarehouseUserLoadingLoader',
               },
             ],
           },
@@ -322,19 +322,19 @@ export default [
               {
                 path: '/tenantadmin/warehouse-user/returns/customer-returns',
                 name: 'Customer Returns',
-                component: './TenantAdmin/WarehouseUserModuleLoader',
+                component: './TenantAdmin/WarehouseUserReturnsLoader',
               },
               {
                 path: '/tenantadmin/warehouse-user/returns/kitting',
                 name: 'Kitting / De-kitting',
-                component: './TenantAdmin/WarehouseUserModuleLoader',
+                component: './TenantAdmin/WarehouseUserKittingLoader',
               },
             ],
           },
           {
             path: '/tenantadmin/warehouse-user/exceptions',
             name: 'Exceptions & Holds',
-            component: './TenantAdmin/WarehouseUserModuleLoader',
+            component: './TenantAdmin/WarehouseUserExceptionsLoader',
           },
           {
             path: '/tenantadmin/warehouse-user/reports',
@@ -343,7 +343,7 @@ export default [
               {
                 path: '/tenantadmin/warehouse-user/reports/my-kpis',
                 name: 'My KPIs',
-                component: './TenantAdmin/WarehouseUserModuleLoader',
+                component: './TenantAdmin/WarehouseUserReportsLoader',
               },
             ],
           },
@@ -351,6 +351,11 @@ export default [
             path: '/tenantadmin/warehouse-user/mobile',
             name: 'Mobile (Handheld)',
             routes: [
+              {
+                path: '/tenantadmin/warehouse-user/mobile',
+                name: 'Unified Tasking',
+                component: './TenantAdmin/WarehouseUserMobileLoader',
+              },
               {
                 path: '/tenantadmin/warehouse-user/mobile/task-list',
                 name: 'Task List',

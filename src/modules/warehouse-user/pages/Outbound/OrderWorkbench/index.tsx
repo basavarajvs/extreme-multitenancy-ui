@@ -74,6 +74,8 @@ const OrderWorkbenchPage: React.FC = () => {
     },
   };
 
+  console.log('selectedRowKeys before ProTable:', selectedRowKeys);
+
   return (
     <PageContainer>
       <ProTable
