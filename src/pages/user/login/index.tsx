@@ -132,22 +132,46 @@ const Login: React.FC = () => {
 
   const handleSubmit = async (values: API.LoginParams) => {
     try {
-      // 登录
-      const msg = await login({ ...values, type });
-      if (msg.status === 'ok') {
-        const defaultLoginSuccessMessage = intl.formatMessage({
-          id: 'pages.login.success',
-          defaultMessage: '登录成功！',
-        });
-        message.success(defaultLoginSuccessMessage);
-        await fetchUserInfo();
-        const urlParams = new URL(window.location.href).searchParams;
-        window.location.href = urlParams.get('redirect') || '/';
-        return;
+      // In development mode, use mock login
+      if (process.env.NODE_ENV === 'development') {
+        // Simulate successful login
+        const msg = {
+          status: 'ok',
+          type: 'account',
+          currentAuthority: 'admin',
+        };
+        
+        if (msg.status === 'ok') {
+          const defaultLoginSuccessMessage = intl.formatMessage({
+            id: 'pages.login.success',
+            defaultMessage: '登录成功！',
+          });
+          message.success(defaultLoginSuccessMessage);
+          await fetchUserInfo();
+          const urlParams = new URL(window.location.href).searchParams;
+          window.location.href = urlParams.get('redirect') || '/';
+          return;
+        }
+        // If failed, set user error info
+        setUserLoginState(msg);
+      } else {
+        // 登录 (Production mode - use actual API)
+        const msg = await login({ ...values, type });
+        if (msg.status === 'ok') {
+          const defaultLoginSuccessMessage = intl.formatMessage({
+            id: 'pages.login.success',
+            defaultMessage: '登录成功！',
+          });
+          message.success(defaultLoginSuccessMessage);
+          await fetchUserInfo();
+          const urlParams = new URL(window.location.href).searchParams;
+          window.location.href = urlParams.get('redirect') || '/';
+          return;
+        }
+        console.log(msg);
+        // 如果失败去设置用户错误信息
+        setUserLoginState(msg);
       }
-      console.log(msg);
-      // 如果失败去设置用户错误信息
-      setUserLoginState(msg);
     } catch (error) {
       const defaultLoginFailureMessage = intl.formatMessage({
         id: 'pages.login.failure',

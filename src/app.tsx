@@ -16,11 +16,14 @@ import defaultSettings from '../config/defaultSettings';
 import { errorConfig } from './requestErrorConfig';
 import '@ant-design/v5-patch-for-react-19';
 
+// Import modules to ensure they're registered
+import '@/modules';
+
 const isDev = process.env.NODE_ENV === 'development';
 const isDevOrTest = isDev || process.env.CI;
 const loginPath = '/user/login';
 
-/**
+/** 
  * @see https://umijs.org/docs/api/runtime-config#getinitialstate
  * */
 export async function getInitialState(): Promise<{
@@ -29,33 +32,74 @@ export async function getInitialState(): Promise<{
   loading?: boolean;
   fetchUserInfo?: () => Promise<API.CurrentUser | undefined>;
 }> {
-  const fetchUserInfo = async () => {
-    try {
-      const msg = await queryCurrentUser({
-        skipErrorHandler: true,
-      });
-      return msg.data;
-    } catch (_error) {
-      history.push(loginPath);
-    }
-    return undefined;
+  // Mock user for development
+  const mockUser: API.CurrentUser = {
+    name: 'Super Admin',
+    avatar: 'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',
+    userid: '1',
+    email: 'admin@super.com',
+    signature: 'Full-stack developer',
+    title: 'Super Administrator',
+    group: 'Super Admin Group',
+    tags: [
+      {
+        key: '0',
+        label: 'Full-stack',
+      },
+    ],
+    notifyCount: 12,
+    unreadCount: 11,
+    country: 'China',
+    access: 'admin',
+    geographic: {
+      province: {
+        label: 'Zhejiang',
+        key: '330000',
+      },
+      city: {
+        label: 'Hangzhou',
+        key: '330100',
+      },
+    },
+    address: '西湖区工专路 77 号',
   };
-  // 如果不是登录页面，执行
-  const { location } = history;
-  if (
-    ![loginPath, '/user/register', '/user/register-result'].includes(
-      location.pathname,
-    )
-  ) {
-    const currentUser = await fetchUserInfo();
+
+  // If not in development mode, try to fetch user info from API
+  if (process.env.NODE_ENV !== 'development') {
+    const fetchUserInfo = async () => {
+      try {
+        const msg = await queryCurrentUser({
+          skipErrorHandler: true,
+        });
+        return msg.data;
+      } catch (_error) {
+        history.push(loginPath);
+      }
+      return undefined;
+    };
+    // 如果不是登录页面，执行
+    const { location } = history;
+    if (
+      ![loginPath, '/user/register', '/user/register-result'].includes(
+        location.pathname,
+      )
+    ) {
+      const currentUser = await fetchUserInfo();
+      return {
+        fetchUserInfo,
+        currentUser,
+        settings: defaultSettings as Partial<LayoutSettings>,
+      };
+    }
     return {
       fetchUserInfo,
-      currentUser,
       settings: defaultSettings as Partial<LayoutSettings>,
     };
   }
+
+  // In development mode, return mock user
   return {
-    fetchUserInfo,
+    currentUser: mockUser,
     settings: defaultSettings as Partial<LayoutSettings>,
   };
 }
