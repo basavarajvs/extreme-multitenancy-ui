@@ -350,12 +350,8 @@ export default [
           {
             path: '/tenantadmin/warehouse-user/mobile',
             name: 'Mobile (Handheld)',
+            component: './TenantAdmin/WarehouseUserMobileLoader',
             routes: [
-              {
-                path: '/tenantadmin/warehouse-user/mobile',
-                name: 'Unified Tasking',
-                component: './TenantAdmin/WarehouseUserMobileLoader',
-              },
               {
                 path: '/tenantadmin/warehouse-user/mobile/task-list',
                 name: 'Task List',

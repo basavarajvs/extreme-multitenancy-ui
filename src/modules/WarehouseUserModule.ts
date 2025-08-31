@@ -160,6 +160,7 @@ const warehouseUserModuleDefinition: ModuleDefinition = {
     },
     {
       path: '/mobile',
+      componentPath: '../../modules/warehouse-user/pages/Mobile/index',
       name: 'Mobile (Handheld)',
       subRoutes: [
         {

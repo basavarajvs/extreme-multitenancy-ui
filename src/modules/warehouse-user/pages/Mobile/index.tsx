@@ -27,7 +27,7 @@ import {
   ScanOutlined,
   MessageOutlined,
   WifiOutlined,
-  BatteryOutlined,
+  CarryOutOutlined,
   UserOutlined,
   HomeOutlined,
   LogoutOutlined,
@@ -384,7 +384,7 @@ const MobileUnifiedTasking: React.FC = () => {
             <WifiOutlined style={{ color: offline ? 'red' : 'green' }} />
           </Popover>
           <Popover content="Battery: 85%" trigger="hover">
-            <BatteryOutlined />
+            <CarryOutOutlined />
             <span style={{ fontSize: '12px', position: 'relative', left: '-6px' }}>85%</span>
           </Popover>
           <Popover 
