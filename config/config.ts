@@ -1,13 +1,15 @@
 // https://umijs.org/config/
-
 import { join } from 'node:path';
 import { defineConfig } from '@umijs/max';
 import defaultSettings from './defaultSettings';
 import proxy from './proxy';
+import routesSaas from './routes.saas';
+import routesWms from './routes.wms';
 
-import routes from './routes';
+const { UMI_ENV = 'dev', APP_TYPE = 'wms' } = process.env;
 
-const { UMI_ENV = 'dev' } = process.env;
+const appRoutes = APP_TYPE === 'saas' ? routesSaas : routesWms;
+const appPort = APP_TYPE === 'saas' ? 8001 : 8002;
 
 /**
  * @name 使用公共路径
@@ -40,7 +42,7 @@ export default defineConfig({
    * @doc https://umijs.org/docs/guides/routes
    */
   // umi routes: https://umijs.org/docs/routing
-  routes,
+  routes: appRoutes,
   /**
    * @name 主题的配置
    * @description 虽然叫主题，但是其实只是 less 的变量设置
@@ -176,28 +178,24 @@ export default defineConfig({
    */
   mako: {},
   esbuildMinifyIIFE: true,
-  requestRecord: {},
+  requestRecord: false,
   exportStatic: {},
   define: {
     'process.env.CI': process.env.CI,
   },
   // Enable TypeScript module resolution for dynamic imports
-  extraBabelIncludes: [
-    /@umijs[\\/]max/,
-    /@ant-design[\\/]pro-*/,
-  ],
+  extraBabelIncludes: [/@umijs[/]max/, /@ant-design[/]pro-*/],
   // Configure TypeScript module resolution
   chainWebpack(config: any) {
     config.module
       .rule('ts-in-node_modules')
       .test(/\.tsx?$/)
-      .include
-        .add(/node_modules/)
-        .end()
+      .include.add(/node_modules/)
+      .end()
       .use('babel-loader')
-        .loader('babel-loader')
-        .end();
-    
+      .loader('babel-loader')
+      .end();
+
     // Enable dynamic imports
     config.merge({
       optimization: {
@@ -209,7 +207,7 @@ export default defineConfig({
           cacheGroups: {
             vendor: {
               name: 'vendors',
-              test: /[\\/]node_modules[\\/]/,
+              test: /[/]node_modules[/]/,
               priority: -10,
             },
           },

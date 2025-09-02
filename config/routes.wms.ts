@@ -29,111 +29,6 @@ export default [
     component: './Welcome',
   },
   {
-    path: '/admin',
-    name: 'admin',
-    icon: 'crown',
-    access: 'canAdmin',
-    routes: [
-      {
-        path: '/admin',
-        redirect: '/admin/sub-page',
-      },
-      {
-        path: '/admin/sub-page',
-        name: 'sub-page',
-        component: './Admin',
-      },
-    ],
-  },
-  {
-    path: '/superadmin',
-    name: 'superadmin',
-    icon: 'setting',
-    access: 'canAdmin',
-    routes: [
-      {
-        path: '/superadmin',
-        redirect: '/superadmin/dashboard',
-      },
-      {
-        path: '/superadmin/dashboard',
-        name: 'dashboard',
-        icon: 'dashboard',
-        component: './SuperAdmin/Dashboard',
-      },
-      {
-        path: '/superadmin/tenant-onboarding',
-        name: 'tenant-onboarding',
-        icon: 'usergroup-add',
-        component: './SuperAdmin/TenantOnboarding',
-      },
-      {
-        path: '/superadmin/tenants',
-        name: 'tenants',
-        icon: 'team',
-        component: './SuperAdmin/TenantManagement',
-      },
-      {
-        path: '/superadmin/reports',
-        name: 'reports',
-        icon: 'bar-chart',
-        component: './SuperAdmin/SystemReports',
-      },
-      {
-        path: '/superadmin/user-role-management',
-        name: 'user-role-management',
-        icon: 'user',
-        component: './SuperAdmin/UserRoleManagement',
-      },
-      {
-        path: '/superadmin/application-settings',
-        name: 'application-settings',
-        icon: 'setting',
-        component: './SuperAdmin/ApplicationSettings',
-      },
-      {
-        path: '/superadmin/tenant/:id',
-        component: './SuperAdmin/TenantDetail',
-      },
-    ],
-  },
-  {
-    path: '/appadmin',
-    name: 'appadmin',
-    icon: 'control',
-    access: 'canAdmin',
-    routes: [
-      {
-        path: '/appadmin',
-        redirect: '/appadmin/dashboard',
-      },
-      {
-        path: '/appadmin/dashboard',
-        name: 'dashboard',
-        icon: 'dashboard',
-        component: './ApplicationAdmin/Dashboard',
-      },
-      {
-        path: '/appadmin/settings',
-        name: 'settings',
-        icon: 'setting',
-        component: './ApplicationAdmin/Settings',
-      },
-      {
-        path: '/appadmin/roles',
-        name: 'roles',
-        icon: 'usergroup-add',
-        component: './ApplicationAdmin/Roles',
-      },
-      {
-        path: '/appadmin/audit',
-        name: 'audit-logs',
-        icon: 'file-search',
-        component: './ApplicationAdmin/Audit',
-      },
-    ],
-  },
-  {
     path: '/tenantadmin',
     name: 'tenantadmin',
     icon: 'home',
@@ -470,12 +365,6 @@ export default [
         component: './TenantAdmin/WarehouseUserModuleLoader',
       },
     ],
-  },
-  {
-    name: 'list.table-list',
-    icon: 'table',
-    path: '/list',
-    component: './table-list',
   },
   {
     path: '/',
