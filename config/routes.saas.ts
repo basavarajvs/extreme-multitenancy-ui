@@ -25,26 +25,10 @@ export default [
   {
     path: '/welcome',
     name: 'welcome',
-    icon: 'smile',
-    component: './Welcome',
+    icon: 'home',
+    component: './SaasWelcome',
   },
-  {
-    path: '/admin',
-    name: 'admin',
-    icon: 'crown',
-    access: 'canAdmin',
-    routes: [
-      {
-        path: '/admin',
-        redirect: '/admin/sub-page',
-      },
-      {
-        path: '/admin/sub-page',
-        name: 'sub-page',
-        component: './Admin',
-      },
-    ],
-  },
+
   {
     path: '/superadmin',
     name: 'superadmin',
@@ -133,12 +117,7 @@ export default [
       },
     ],
   },
-  {
-    name: 'list.table-list',
-    icon: 'table',
-    path: '/list',
-    component: './table-list',
-  },
+
   {
     path: '/',
     redirect: '/welcome',

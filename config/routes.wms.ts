@@ -25,8 +25,8 @@ export default [
   {
     path: '/welcome',
     name: 'welcome',
-    icon: 'smile',
-    component: './Welcome',
+    icon: 'home',
+    component: './WmsDomainWelcome',
   },
   {
     path: '/tenantadmin',

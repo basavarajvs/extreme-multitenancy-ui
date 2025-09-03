@@ -9,7 +9,7 @@ import routesWms from './routes.wms';
 const { UMI_ENV = 'dev', APP_TYPE = 'wms' } = process.env;
 
 const appRoutes = APP_TYPE === 'saas' ? routesSaas : routesWms;
-const appPort = APP_TYPE === 'saas' ? 8001 : 8002;
+const _appPort = APP_TYPE === 'saas' ? 8001 : 8002;
 
 /**
  * @name 使用公共路径
@@ -85,7 +85,7 @@ export default defineConfig({
    * @name layout 插件
    * @doc https://umijs.org/docs/max/layout-menu
    */
-  title: 'Ant Design Pro',
+  title: 'Extreme SaaS',
   layout: {
     locale: true,
     ...defaultSettings,
